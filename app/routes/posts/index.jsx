@@ -1,4 +1,4 @@
-
+import {useLoaderData} from  'remix';
 
 function PostItem() {
   return <div>
