@@ -12,7 +12,7 @@ export const action = async({request})=>{
    }
  // submitting to database
 
-//    return  redirect('/posts')
+   return  redirect('/posts')
 }
 
 
