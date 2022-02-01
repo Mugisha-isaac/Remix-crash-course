@@ -1,5 +1,21 @@
-import {Outlet,LiveReload, Link} from 'remix';
+import {Outlet,LiveReload, Link, Links,Meta} from 'remix';
 import globalStylesUrl from '~/styles/global.css'
+
+
+export const links = ()=>[{
+  rel:'stylesheet',
+  href:globalStylesUrl
+}]
+
+export const meta = ()=>{
+  const desccription ='A Cool Blog Built With Remix';
+  const keywords = 'remix,react,javascript'
+
+  return{
+    desccription,
+    keywords
+  }
+}
 
 export default function App(){
   return (
@@ -15,8 +31,11 @@ function Document({children, title}){
       return(
         <html lang='en'>
     <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Meta />
       <title> {title ? title : 'Remix | Blog | Development | By MUGISHA ISAAC'} </title>
-      <link rel="stylesheet" href={globalStylesUrl} />
+     <Links />
     </head>
     <body>
       {children}
