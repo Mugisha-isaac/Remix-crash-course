@@ -1,0 +1,16 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+}
+.nav{
+   list-style: none;
+   text-decoration: none;
+}
+.logo{
+    text-decoration: none;
+    font-size:2em;
+}
+.posts{
+    text-decoration:none;
+    font-size:1.5em;
+}

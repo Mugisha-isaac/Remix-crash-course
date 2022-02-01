@@ -36,7 +36,7 @@ function Layout({children}){
          </Link>
          <ul className="nav">
            <li>
-             <Link to='/posts'>Posts</Link>
+             <Link to='/posts' className='posts'>Posts</Link>
            </li>
          </ul>
        </nav>
