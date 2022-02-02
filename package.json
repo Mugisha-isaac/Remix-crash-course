@@ -3,12 +3,14 @@
   "name": "remix-app-template-js",
   "description": "",
   "license": "",
+  "prisma":{
+    "seed":"node prisma/seed.js"
+  },
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
-    "start": "remix-serve build",
-    "prisma":""
+    "start": "remix-serve build"
   },
   "dependencies": {
     "@prisma/client": "^3.9.0",
