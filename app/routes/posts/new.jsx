@@ -11,7 +11,7 @@ export const action = async({request})=>{
     body
    }
  // submitting to database
-
+   
    return  redirect('/posts')
 }
 
@@ -40,6 +40,6 @@ function NewPost() {
            </button>
        </form>
    </div>
-  </>;
+  </>
 }
 export default NewPost;
