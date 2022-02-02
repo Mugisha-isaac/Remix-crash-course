@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "db",
+            "group": "db",
+            "database": "db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "DockerRun.DisableDockerrc": true
+}
