@@ -11,19 +11,18 @@ export const loader = async({params})=>{
     return data;
 }
 
-export const action = async({request,params}) =>{
-    const form = await request.formData();
-    if(form.get('_method')==='delete'){
-      const post  = await db.post.findUnique({
-        where:{id:params.PostId}
-      })
-      if(!post) throw new Error('post not found');
-      await db.post.delete({
-        where: {id:post.PostId}
-      })
+export const action = async ({ request, params }) => {
+  const form = await request.formData()
+  if (form.get('_method') === 'delete') {
+    const post = await db.post.findUnique({
+      where: { id: params.PostId },
+    })
 
-      return redirect('/posts')
-    }
+    if (!post) throw new Error('Post not found')
+      await db.post.delete({ where: { id: params.PostId } })
+
+    return redirect('/posts')
+  }
 }
 
 function Post() {
@@ -37,12 +36,10 @@ function Post() {
       {post.body}
     </div>
     <div className="page-footer">
-      <form action="POST">
-      <input type="hidden" name='_method' value='delete' />
-      <button className="btn btn-delete">
-        Delete
-      </button>
-      </form>
+    <form method='POST'>
+            <input type='hidden' name='_method' value='delete' />
+            <button className='btn btn-delete'>Delete</button>
+          </form>
     </div>
   </>;
 }
