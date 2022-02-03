@@ -1,5 +1,19 @@
-import {Link,redirect} from 'remix';
+import {Link,redirect,useActionData,json} from 'remix';
 import {db} from '~/utils/db.server';
+
+
+
+function validateTitle(title){
+    if(typeof title !=='string' || title.length <3){
+        return 'Title should be at least 3 charcters long'
+    }
+}
+
+function validateBody(body){
+    if(typeof body !=='string' || body.length <10){
+        return 'Body should be at least 10 charcters long'
+    }
+}
 
 
 export const action = async({request})=>{
@@ -11,6 +25,18 @@ export const action = async({request})=>{
     body
    }
 
+  
+   // validations
+
+   const fieldErrors ={
+    title: validateTitle(title),
+       body: validateBody(body)
+   }
+    
+   if(Object.values(fieldErrors).some(Boolean)){
+       return json({fieldErrors,fields},{status:400})
+   }
+
  const post = await db.post.create({data:fields});
    
    return  redirect(`/posts/${post.id}`)
@@ -18,6 +44,8 @@ export const action = async({request})=>{
 
 
 function NewPost() {
+    const actionData = useActionData();
+
   return <>
    <div className="page-header">
    <h1>New Post</h1>
@@ -30,11 +58,17 @@ function NewPost() {
        <form method='POST'>
            <div className="form-control">
                <label htmlFor="title">Title</label>
-               <input type="text" name='title' id='title' />
+               <input type="text" name='title' id='title' defaultValue={actionData?.fields?.title} />
+               <div className="error">
+                   <p>{actionData?.fieldErrors?.title && (actionData?.fieldErrors?.title)}</p>
+               </div>
            </div>
            <div className="form-control">
                <label htmlFor="body">Post Body</label>
-               <textarea type="text" name='body' id='body' />
+               <textarea type="text" name='body' id='body' defaultValue={actionData?.fields?.body} />
+               <div className="error">
+                   <p>{actionData?.fieldErrors?.body && (actionData?.fieldErrors?.body)}</p>
+               </div>
            </div>
            <button className="btn btn-block" type='submit'>
                Add Post
