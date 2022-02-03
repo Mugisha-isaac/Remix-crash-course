@@ -11,9 +11,9 @@ export const action = async({request})=>{
     body
    }
 
-  await db.post.create({data:fields});
+ const post = await db.post.create({data:fields});
    
-   return  redirect('/posts')
+   return  redirect(`/posts/${post.id}`)
 }
 
 
