@@ -1,5 +1,5 @@
 import {Link,redirect} from 'remix';
-
+import {db} from '~/utils/db.server';
 
 
 export const action = async({request})=>{
@@ -10,7 +10,8 @@ export const action = async({request})=>{
     title,
     body
    }
- // submitting to database
+
+  await db.post.create({data:fields});
    
    return  redirect('/posts')
 }
