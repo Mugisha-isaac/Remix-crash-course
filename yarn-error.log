@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add prisma@latest --save-dev
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bcrypt
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\Makuza Mugabo Verite\AppData\Local\Microsoft\WindowsApps;;C:\Users\Makuza Mugabo Verite\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Makuza Mugabo Verite\AppData\Roaming\npm;C:\Users\Makuza Mugabo Verite\AppData\Local\Yarn\bin
