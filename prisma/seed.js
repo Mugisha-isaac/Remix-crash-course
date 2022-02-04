@@ -6,8 +6,10 @@ const prisma = new PrismaClient();
 async function seed(){
     // password: hashcat 
     const Isaac = await prisma.user.create({
+        data:{
         username: 'Isaac',
         passwordHash:'$P$984478476IagS59wHZvyQMArzfx58u'
+        }
     })
     await Promise.all(
         getPosts().map(post=>{

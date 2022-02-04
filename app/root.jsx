@@ -57,6 +57,9 @@ function Layout({children}){
            <li>
              <Link to='/posts' className='posts'>Posts</Link>
            </li>
+           <li>
+             <Link to='/auth/login' className='posts'>Login</Link>
+           </li>
          </ul>
        </nav>
        <div className="container">
