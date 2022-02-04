@@ -42,8 +42,23 @@ export const action = async({request})=>{
 
   switch(loginType){
     case 'login':{
-      // first find the user
-      
+      //  find the user
+      // check user
+      // create user session
+
+    }
+    case 'register':{
+      // check if user exists
+      // create the user
+      // create the user session
+    }
+    default:{
+      return badRequest(
+        {
+          fields,
+          formError:'Invalid Login Type'
+        }
+        )
     }
   }
 }
