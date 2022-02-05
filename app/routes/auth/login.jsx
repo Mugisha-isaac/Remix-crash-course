@@ -45,11 +45,14 @@ export const action = async({request})=>{
     case 'login':{
       //  find the user
       const user = await Login(username,password);
+      consoe.log(user);
       // check user
       if(!user) return badRequest({
         fields,
         fieldErrors: {username:'Invalid credentials'}
       })
+      return ('successfully login');
+
       // create user session
 
     }
