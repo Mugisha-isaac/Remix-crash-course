@@ -5,7 +5,7 @@ import { createCookieSessionStorage, redirect } from 'remix'
 
 // Login user
 
-export async function Login({ username, password }) {
+export async function login({ username, password }) {
   const user = await db.user.findUnique({
     where: {
       username,
