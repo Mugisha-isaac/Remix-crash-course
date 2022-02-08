@@ -50,3 +50,30 @@ export async function createUsersSession(userId: string, redirectTo: string) {
     },
   })
 }
+
+// getting user session
+
+export const getUserSession = (request:Request)=>{
+    return storage.getSession(request.headers.get('Cookie'))
+}
+
+// getting the loggedin user
+
+export const getUser = async(request:Request)=>{
+  const session = await getUserSession(request);
+  const userId = session.get('userId');
+  if(!userId || typeof userId !=='string'){
+    return null;
+  }
+  try{
+    const user = await db.user.findUnique({
+        where: {id:userId}
+      });
+      return user;
+  }
+  catch(error){
+    console.log(error);
+    return null;
+  }
+}
+
