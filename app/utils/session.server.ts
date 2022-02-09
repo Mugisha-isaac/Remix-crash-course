@@ -3,7 +3,6 @@ import { db } from './db.server'
 import { createCookieSessionStorage, redirect } from 'remix'
 
 
-// Login user
 
 export async function login({ username, password }) {
   const user = await db.user.findUnique({
@@ -14,7 +13,6 @@ export async function login({ username, password }) {
 
   if (!user) return null
 
-  // Check password
   const isCorrectPassword = await bcrypt.compare(password, user.passwordHash)
 
   if (!isCorrectPassword) return null
@@ -22,7 +20,6 @@ export async function login({ username, password }) {
   return user
 }
 
-// const sessionSecret = process.env.SESSION_SECRET;
 
 const sessionSecret ="secret";
 
@@ -51,13 +48,11 @@ export async function createUsersSession(userId: string, redirectTo: string) {
   })
 }
 
-// getting user session
 
 export const getUserSession = (request:Request)=>{
     return storage.getSession(request.headers.get('Cookie'))
 }
 
-// getting the loggedin user
 
 export const getUser = async(request:Request)=>{
   const session = await getUserSession(request);
@@ -77,8 +72,6 @@ export const getUser = async(request:Request)=>{
   }
 }
 
-
-// logging out the user and destroying the session
 
 export const logout = async(request:Request)=>{
    const session = await storage.getSession(request.headers.get('Cookie'));
