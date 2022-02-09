@@ -1,6 +1,6 @@
 import {Link,redirect,useActionData,json} from 'remix';
 import {db} from '~/utils/db.server';
-import {getUser} from '~utils/session.server';
+import {getUser} from '../../utils/session.server'
 
 
 

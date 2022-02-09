@@ -72,9 +72,8 @@ export const action = async ({ request }) => {
           formError: 'Something went wrong',
         })
       }
-
       // Create session
-      return createUserSession(user.id, '/posts');
+      return createUsersSession(user.id, '/posts');
     }
     default: {
       return badRequest({

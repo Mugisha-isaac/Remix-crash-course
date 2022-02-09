@@ -71,7 +71,7 @@ function Layout({children}){
              <form action="/auth/logout" method='POST'>
                <button className='btn' type='submit'>
                  Logout {user.username}
-               </button>wor
+               </button>
              </form>
            </li>): (<li>
              <Link to='/auth/login' className='posts'>Login</Link>
