@@ -89,3 +89,13 @@ export const logout = async(request:Request)=>{
    })
 }
 
+export const register =async({username,password})=>{
+  const passwordHash = await bcrypt.hash(password,10);
+  return db.user.create({
+    data:{
+      username,
+      passwordHash
+    }
+  })
+}
+

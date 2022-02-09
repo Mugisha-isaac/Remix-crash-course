@@ -1,6 +1,6 @@
 import { useActionData, redirect, json } from 'remix'
 import { db } from '~/utils/db.server'
-import { createUsersSession, login } from '~/utils/session.server'
+import { createUsersSession, login, register } from '~/utils/session.server'
 
 function validateUsername(username) {
   if (typeof username !== 'string' || username.length < 3) {
@@ -65,7 +65,6 @@ export const action = async ({ request }) => {
         })
       }
 
-      // Create user
       const user = await register({ username, password })
       if (!user) {
         return badRequest({
@@ -75,7 +74,7 @@ export const action = async ({ request }) => {
       }
 
       // Create session
-      return createUserSession(user.id, '/posts')
+      return createUserSession(user.id, '/posts');
     }
     default: {
       return badRequest({
@@ -84,8 +83,6 @@ export const action = async ({ request }) => {
       })
     }
   }
-
-  return redirect('/posts')
 }
 
 function Login() {
